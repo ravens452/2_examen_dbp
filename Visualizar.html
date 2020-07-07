@@ -13,43 +13,40 @@
 </head>
 <body>
 
-<p>Click the button to add a new row at the first position of the table and then add cells and content.</p>
-<div id="div1"><h2>Ajax Load Categories</h2></div>
-<button>Get external Content</button>
+<div id="div1"><h2>Aqui se muestran los datos de Categories.</h2></div>
 <!--el cross SE PONE ENCIMA DE LA CLASE DE QUE YSA RESCONTROLLER-->
 <table id="myTable">
     <!--    Puedes borrar la tablita de abajo se pone vacia-->
     <tr>
         <td>Row1 cell1</td>
         <td>Row1 cell2</td>
+        <td>Row1 cell2</td>
     </tr>
     <tr>
         <td>Row2 cell1</td>
         <td>Row2 cell2</td>
+        <td>Row1 cell2</td>
     </tr>
     <tr>
         <td>Row3 cell1</td>
         <td>Row3 cell2</td>
+        <td>Row1 cell2</td>
     </tr>
 </table>
 <br>
 
-<button type="button" onclick="myFunction()">Try it</button>
-
-
+<button type="button" onclick="myFunction()">mostrarDatos</button>
 
 <script>
     $(document).ready(function(){
         $("button").click(function(){
-            $.ajax({
+            $.ajax({ //usamos ajax llamar al servicioWeb
                 type: "GET",
                 uri: 'CategoryService/FindAll',
                 dataType: 'aplication/json',
-                // data: "{name:'tipo1', }",
                 success: function (result) {
                     var table = document.getElementById("myTable");
-                    $.each(result, function(i, obj) { //obj es la lista de arreglo por cada indice: [{"id":"856","name","India"),...
-                        //use obj.id and obj.name here, for example:
+                    $.each(result, function(i, obj) { //i : los indices del arreglo,obj es la lista de datos de cada arreglo.
                         alert(obj.name);
                         var row = table.insertRow(0);
                         var cell1 = row.insertCell(0);
