@@ -2,9 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="javascript.js"></script>
+    <style>
+        table, td {
+            border: 1px solid black;
+        }
+    </style>
     <title>Title</title>
 </head>
 <body>
+
+<p>Click the button to add a new row at the first position of the table and then add cells and content.</p>
+<div id="div1"><h2>Ajax Load Categories</h2></div>
+<button>Get external Content</button>
+<!--el cross SE PONE ENCIMA DE LA CLASE DE QUE YSA RESCONTROLLER-->
+<table id="myTable">
+    <!--    Puedes borrar la tablita de abajo se pone vacia-->
+    <tr>
+        <td>Row1 cell1</td>
+        <td>Row1 cell2</td>
+    </tr>
+    <tr>
+        <td>Row2 cell1</td>
+        <td>Row2 cell2</td>
+    </tr>
+    <tr>
+        <td>Row3 cell1</td>
+        <td>Row3 cell2</td>
+    </tr>
+</table>
+<br>
+
+<button type="button" onclick="myFunction()">Try it</button>
+
+
+
 <script>
     $(document).ready(function(){
         $("button").click(function(){
